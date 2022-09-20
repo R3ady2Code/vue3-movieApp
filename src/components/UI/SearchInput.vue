@@ -2,12 +2,16 @@
 	<div class="p-2 text-lg rounded bg-zinc-800 text-white flex items-start gap-2">
 		<img src="../../assets/search.svg" alt="search" class="w-6">
 		<input type="text" class="w-full transition-all bg-zinc-800 focus:outline-0" @focus="$emit('onFocus')"
-			@blur="$emit('onBlur')" placeholder="Поиск кино...">
+			@blur="$emit('onBlur')" placeholder="Поиск кино..." :value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)">
 	</div>
 </template>
 
 <script>
 export default {
 	name: "SearchInput",
+	props: {
+		modelValue: String
+	}
 }
 </script>

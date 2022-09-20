@@ -55,6 +55,14 @@ export default createStore({
 
       return data.films.slice(0, 5);
     },
+    async getSearchMovies(arg, { keyword }) {
+      const { data } = await axios.get(
+        URL + `/api/v2.2/films?order=RATING&keyword=${keyword}&page=1`,
+        config,
+      );
+
+      return data;
+    },
   },
   modules: {},
 });
